@@ -3,11 +3,11 @@
 Multithreading is a powerful concept in Java that allows you to execute multiple tasks concurrently, enhancing the performance of your programs. In this guide, we'll explore different threading approaches using a simple example.
 
 ## The Scenario
-Consider a scenario where you have a list of tasks to be executed, each with a specific duration. We'll implement various threading approaches to understand their implications.
+Consider a scenario where you have a list of tasks to be executed, each with a specific duration. ```MyWork``` class simulates a wortk / task execution and a util class for formatting help. We'll implement various threading approaches in the main class, to understand their implications.
 
 ## Breaking Down the Code
 
-### Main Class
+### Main Class, MyWork class and Util class
 ```
 public class ThreadingExample {
     public static void main(String args[]) throws Exception {
@@ -17,10 +17,11 @@ public class ThreadingExample {
         // 1 - Sync Approach
         // 2 - Async Approach
         // 3 - etc ..
+
+        System.out.println(" : -----------Main Program Finished-----------");
     }
 }
 ```
-
 > The MyWork class represents a task with a name and a specified duration. The ```execute()``` method simulates the task execution.
 ```
 class MyWork {
