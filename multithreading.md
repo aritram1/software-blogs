@@ -3,7 +3,7 @@
 Multithreading is a powerful concept in Java that allows you to execute multiple tasks concurrently, enhancing the performance of your programs. In this guide, we'll explore different threading approaches using a simple example.
 
 ## The Scenario
-Consider a scenario where you have a list of tasks to be executed, each with a specific duration. ```MyWork``` class simulates a wortk / task execution and a util class for formatting help. We'll implement various threading approaches in the main class, to understand their implications.
+Consider a scenario where you have a list of tasks to be executed, each with a specific duration. ```MyWork``` class simulates a work/task execution and a ```util``` class for formatting help. We'll implement various threading approaches in the main class, to understand their implications.
 
 ## Breaking Down the Code
 ### Main Class
@@ -22,7 +22,7 @@ public class ThreadingExample {
 }
 ```
 ### MyWork class
-> The MyWork class represents a task with a name and a specified duration. The ```execute()``` method simulates the task execution.
+> The ```MyWork``` class represents a task with a name and a specified duration. The ```execute()``` method simulates the task execution.
 ```
 class MyWork {
     String name;
@@ -43,7 +43,7 @@ class MyWork {
 }
 ```
 ### Util class
-> The util class provides a utility method ```println``` to print messages with a timestamp.
+> The ```util``` class provides a utility method ```println``` to print messages with a timestamp.
 ```
 class util {
     public static void println(String str){
@@ -189,7 +189,7 @@ We added all 4 ways of executing the tasks, and here is the output. Have a look 
 # Explanation
 Each threading approach demonstrates a different way of handling concurrent tasks. Here's a breakdown:
 
-> Sync Approach: Tasks are executed sequentially, one after the other. This is **straightforward** and will block the min thread, also lead to increased execution time.
+> Sync Approach: Tasks are executed sequentially, one after the other. This is **straightforward** and will block the main thread, also lead to increased execution time.
 
 > Async-1 Approach: Each task runs in a separate thread, enabling concurrent execution. However, there's no coordination between threads.
 
