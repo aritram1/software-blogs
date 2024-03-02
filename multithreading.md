@@ -20,7 +20,8 @@ public class ThreadingExample {
     }
 }
 ```
-> The MyWork class represents a task with a name and a specified duration. The **execute()*** method simulates the task execution.
+
+> The MyWork class represents a task with a name and a specified duration. The ```execute()``` method simulates the task execution.
 ```
 class MyWork {
     String name;
@@ -40,6 +41,7 @@ class MyWork {
     }
 }
 ```
+
 > The util class provides a utility method println to print messages with a timestamp.
 ```
 class util {
