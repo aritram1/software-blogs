@@ -43,7 +43,7 @@ class MyWork {
 }
 ```
 ### Util class
-> The util class provides a utility method println to print messages with a timestamp.
+> The util class provides a utility method ```println``` to print messages with a timestamp.
 ```
 class util {
     public static void println(String str){
