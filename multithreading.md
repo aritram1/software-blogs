@@ -140,7 +140,7 @@ Output :
 ```
 
 
-# Output
+# Overall Output and Explanation
 We added all 4 ways of executing the tasks, and here is the output. Have a look the timestamps and print messages to understand how **the main thread and spawned threads are interacting** 
 - ```Sync Approach``` this is getting printed from main thread, where as,
 - ```Started :```, ```Finished :``` etc are getting printed from spawned threads.
@@ -189,7 +189,7 @@ We added all 4 ways of executing the tasks, and here is the output. Have a look 
 # Explanation
 Each threading approach demonstrates a different way of handling concurrent tasks. Here's a breakdown:
 
-> Sync Approach: Tasks are executed sequentially, one after the other. This is **straightforward** and will lead to increased execution time.
+> Sync Approach: Tasks are executed sequentially, one after the other. This is **straightforward** and will block the min thread, also lead to increased execution time.
 
 > Async-1 Approach: Each task runs in a separate thread, enabling concurrent execution. However, there's no coordination between threads.
 
@@ -197,8 +197,8 @@ Each threading approach demonstrates a different way of handling concurrent task
 
 > Async-3 Approach: Using a list of threads allows you to control the execution order. Threads are started first and then joined in sequence, combining parallelism and order.
 
-Summary
-Understanding threading in a multithreading language is crucial for optimizing performance. The synchronous approach is simple but may not be efficient for time-consuming tasks. Asynchronous approaches provide parallelism but require careful coordination to avoid issues.
+# Summary
+The synchronous approach is simple but may not be efficient for time-consuming tasks. Asynchronous approaches provide parallelism but require careful coordination to avoid issues. We will look into how to port this approaches to `go`
 
-1/2
-## Next : Concurrency and Parallelism and Javascript.
+
+### _Next writeup : Concurrency and Parallelism and Javascript._
