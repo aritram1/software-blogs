@@ -109,7 +109,7 @@ for(int i = 0; i < tasks.size(); i++){
     MyWork work = new MyWork(prefix + tasks.get(i), durations.get(i));
     Thread t = new Thread(()->work.execute());
     t.start();
-    t.join(); // each thread will wait for the previous one to finish
+    t.join();
 }
 ```
 
@@ -129,7 +129,7 @@ for(int i = 0; i < tasks.size(); i++){
 }
 // The for loop to allow the threads to join
 for(int i = 0; i < threads.size(); i++){
-    threads.get(i).join(); // threads will not wait for others to finish
+    threads.get(i).join();
 }
 ```
 Output :
