@@ -114,6 +114,52 @@ for(int i = 0; i < threads.size(); i++){
 }
 ```
 
+# Output
+The above code when run together, produces this output. Have a look at how **the main thread and spawned threads interact**
+> ```-----Sync Approach----``` this is getting printed from main thread.
+> ```Started :```, ```Finished :``` these are getting printed from spawned threads.
+
+```
+21:36:43 :  : -----------Main Program Started-----------
+-------------------------Sync Approach-------------------------
+21:36:43 : Started : 1-Task A
+21:36:44 : Finished : 1-Task A,took 1 seconds
+21:36:44 : Started : 1-Task B
+21:36:45 : Finished : 1-Task B,took 1 seconds
+21:36:45 : Started : 1-Task C
+21:36:46 : Finished : 1-Task C,took 1 seconds
+21:36:46 : Started : 1-Task D
+21:36:48 : Finished : 1-Task D,took 1 seconds
+-------------------------Async 1 Approach-------------------------
+21:36:48 : Started : 2-Task A
+21:36:48 : Started : 2-Task C
+21:36:48 : Started : 2-Task B
+-------------------------Async 2 Approach-------------------------
+21:36:48 : Started : 2-Task D
+21:36:48 : Started : 3-Task A
+21:36:49 : Finished : 2-Task A,took 1 seconds
+21:36:49 : Finished : 3-Task A,took 1 seconds
+21:36:49 : Started : 3-Task B
+21:36:49 : Finished : 2-Task B,took 1 seconds
+21:36:49 : Finished : 2-Task C,took 1 seconds
+21:36:49 : Finished : 2-Task D,took 1 seconds
+21:36:50 : Finished : 3-Task B,took 1 seconds
+21:36:50 : Started : 3-Task C
+21:36:51 : Finished : 3-Task C,took 1 seconds
+21:36:51 : Started : 3-Task D
+21:36:53 : Finished : 3-Task D,took 1 seconds
+-------------------------Async 3 Approach-------------------------
+21:36:53 : Started : 4-Task A
+21:36:53 : Started : 4-Task B
+21:36:53 : Started : 4-Task C
+21:36:53 : Started : 4-Task D
+21:36:54 : Finished : 4-Task A,took 1 seconds
+21:36:54 : Finished : 4-Task B,took 1 seconds
+21:36:54 : Finished : 4-Task C,took 1 seconds
+21:36:54 : Finished : 4-Task D,took 1 seconds
+21:36:54 :  : -----------Main Program Ended-----------
+```
+
 # Explanation
 Each threading approach demonstrates a different way of handling concurrent tasks. Here's a breakdown:
 
