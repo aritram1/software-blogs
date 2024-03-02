@@ -10,9 +10,15 @@ Consider a scenario where you have a list of tasks to be executed, each with a s
 ```
 public class ThreadingExample {
     public static void main(String args[]) throws Exception {
+
+        // We will take 4 distinct independent tasks that will take some duration in miliseconds, to complete
+        ArrayList<String> tasks = new ArrayList<>(Arrays.asList("Task A", "Task B", "Task C", "Task D")); // Tasks
+        ArrayList<Integer> durations = new ArrayList<>(Arrays.asList(1000, 1100, 1200, 1500));            // Durations in miliseconds
+        String prefix = "";
+
         System.out.println(" : -----------Main Program Started-----------");
         
-        // Different approaches that we will look below
+        // Different approaches that we will look below to complete these tasks serially and parallelly
         // 1 - Sync Approach
         // 2 - Async Approach
         // 3 - etc ..
