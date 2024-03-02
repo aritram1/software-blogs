@@ -6,8 +6,7 @@ Multithreading is a powerful concept in Java that allows you to execute multiple
 Consider a scenario where you have a list of tasks to be executed, each with a specific duration. ```MyWork``` class simulates a wortk / task execution and a util class for formatting help. We'll implement various threading approaches in the main class, to understand their implications.
 
 ## Breaking Down the Code
-
-### Main Class, MyWork class and Util class
+### Main Class
 ```
 public class ThreadingExample {
     public static void main(String args[]) throws Exception {
@@ -22,6 +21,7 @@ public class ThreadingExample {
     }
 }
 ```
+### MyWork class
 > The MyWork class represents a task with a name and a specified duration. The ```execute()``` method simulates the task execution.
 ```
 class MyWork {
@@ -42,7 +42,7 @@ class MyWork {
     }
 }
 ```
-
+### Util class
 > The util class provides a utility method println to print messages with a timestamp.
 ```
 class util {
@@ -53,8 +53,8 @@ class util {
 }
 ```
 
-### Sync Approach
-In the synchronous approach, tasks are executed one after another in a sequential manner. This ensures simplicity but will lead to increased execution time.
+## Sync Approach
+In the synchronous approach, tasks are executed one after another in a sequential manner. This ensures simplicity but will lead to main thread waiting, increasing overall execution time.
 
 ```
 // Sync approach
@@ -64,6 +64,18 @@ for(int i = 0; i < tasks.size(); i++){
     MyWork work = new MyWork(prefix + tasks.get(i), durations.get(i));
     work.execute();
 }
+```
+Output:
+```
+-------------------------Sync Approach-------------------------
+21:36:43 : Started : 1-Task A
+21:36:44 : Finished : 1-Task A,took 1 seconds
+21:36:44 : Started : 1-Task B
+21:36:45 : Finished : 1-Task B,took 1 seconds
+21:36:45 : Started : 1-Task C
+21:36:46 : Finished : 1-Task C,took 1 seconds
+21:36:46 : Started : 1-Task D
+21:36:48 : Finished : 1-Task D,took 1 seconds
 ```
 
 ### Async-1 Approach
@@ -114,11 +126,24 @@ for(int i = 0; i < threads.size(); i++){
     threads.get(i).join(); // threads will not wait for others to finish
 }
 ```
+Output :
+```
+-------------------------Async 3 Approach-------------------------
+21:36:53 : Started : 4-Task A
+21:36:53 : Started : 4-Task B
+21:36:53 : Started : 4-Task C
+21:36:53 : Started : 4-Task D
+21:36:54 : Finished : 4-Task A,took 1 seconds
+21:36:54 : Finished : 4-Task B,took 1 seconds
+21:36:54 : Finished : 4-Task C,took 1 seconds
+21:36:54 : Finished : 4-Task D,took 1 seconds
+```
+
 
 # Output
-The above code when run together, produces this output. Have a look at how **the main thread and spawned threads interact**
-> ```-----Sync Approach----``` this is getting printed from main thread.
-> ```Started :```, ```Finished :``` these are getting printed from spawned threads.
+We added all 4 ways of executing the tasks, and here is the output. Have a look the timestamps and print messages to understand how **the main thread and spawned threads are interacting** 
+- ```Sync Approach``` this is getting printed from main thread, where as,
+- ```Started :```, ```Finished :``` etc are getting printed from spawned threads.
 
 ```
 21:36:43 :  : -----------Main Program Started-----------
